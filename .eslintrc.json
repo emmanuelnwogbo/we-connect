@@ -17,6 +17,8 @@
     "no-duplicate-case": "error",
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
     "object-curly-newline": "off",
-    "no-restricted-syntax": "off"
+    "no-restricted-syntax": "off",
+    "no-useless-escape": "off",
+    "consistent-return": "off"
   }
 }

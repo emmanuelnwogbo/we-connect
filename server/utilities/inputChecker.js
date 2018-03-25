@@ -2,9 +2,10 @@ import isEmpty from './isEmpty';
 import isEmail from './isEmail';
 import removeSpace from './removeSpace';
 
-const inputChecker = inputs => {
+const inputChecker = (req, res, next) => {
+  const inputs = req.body;
   const check = inputs;
-  const { firstname, lastname, email, confirmpassword, password } = check;
+  const { email, confirmpassword, password } = check;
   const inputArr = Object.keys(check);
   const lastInput = inputArr.pop();
 
@@ -25,45 +26,47 @@ const inputChecker = inputs => {
   }
 
   if (emptyInputCount > 0) {
-    return console.log('please check your input for empty spaces');
+    inputCheckerVal = `please check your input for empty spaces`;
+    return res.status(406).send({ message: inputCheckerVal });
   }
 
   if (emptySpaceCheck > 0) {
-    return console.log('inputs should not include empty spaces');
+    inputCheckerVal = `inputs should not include empty spaces`;
+    return res.status(406).send({ message: inputCheckerVal });
   }
 
   switch (lastInput) {
     case 'confirmpassword':
       if (confirmpassword !== password) {
-        return console.log(`passwords don't match`);
+        inputCheckerVal = `passwords don't match`;
+        return res.status(406).res.send({ message: inputCheckerVal });
       }
 
       if (isEmail(email) === false) {
-        return console.log('not a valid email');
+        inputCheckerVal = `not a valid email`;
+        return res.status(406).send({ message: inputCheckerVal });
       }
 
       if (password.length <= 5) {
-        return console.log(
-          'password length should be greater than 5 characters'
-        );
+        inputCheckerVal = `password length should be greater than 5 characters`;
+        return res.status(406).send({ message: inputCheckerVal });
       }
-
-      console.log(true);
+      next();
       break;
     case 'password':
       if (isEmail(email) === false) {
-        return console.log('not a valid email');
+        inputCheckerVal = `not a valid email`;
+        return res.status(406).send({ message: inputCheckerVal });
       }
 
       if (password.length <= 5) {
-        return console.log(
-          'password length should be greater than 5 characters'
-        );
+        inputCheckerVal = `password length should be greater than 5 characters`;
+        return res.status(406).send({ message: inputCheckerVal });
       }
-      console.log(`valid email`);
+      next();
       break;
     default:
-      console.log('this is a test');
+      next();
   }
 };
 
