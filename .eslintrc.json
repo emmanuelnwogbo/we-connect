@@ -12,6 +12,7 @@
     "no-console": ["error", { "allow": ["warn"] }],
     "eol-last": ["off", "never"],
     "linebreak-style": ["off", "windows"],
-    "arrow-parens": ["error", "as-needed"]
+    "arrow-parens": ["error", "as-needed"],
+    "import/newline-after-import": "off"
   }
 }

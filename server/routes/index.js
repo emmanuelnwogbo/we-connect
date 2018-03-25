@@ -1,11 +1,12 @@
 import express from 'express';
-const router = express.Router();
-const indexRoute = router;
 
 import businessRoute from './business';
 import userRoute from './user';
 
-router.get('/', (req, res, next) => {
+const router = express.Router();
+const indexRoute = router;
+
+router.get('/', (req, res) => {
   res.send('hello index');
 });
 
