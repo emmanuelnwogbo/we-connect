@@ -13,6 +13,10 @@
     "eol-last": ["off", "never"],
     "linebreak-style": ["off", "windows"],
     "arrow-parens": ["error", "as-needed"],
-    "import/newline-after-import": "off"
+    "import/newline-after-import": "off",
+    "no-duplicate-case": "error",
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "object-curly-newline": "off",
+    "no-restricted-syntax": "off"
   }
 }

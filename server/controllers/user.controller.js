@@ -6,4 +6,8 @@ export default class UserController {
   static signUp(req, res) {
     inputChecker(req.body);
   }
+
+  static login(req, res) {
+    inputChecker(req.body);
+  }
 }
