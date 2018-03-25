@@ -39,7 +39,7 @@ const inputChecker = (req, res, next) => {
     case 'confirmpassword':
       if (confirmpassword !== password) {
         inputCheckerVal = `passwords don't match`;
-        return res.status(406).res.send({ message: inputCheckerVal });
+        return res.status(406).send({ message: inputCheckerVal });
       }
 
       if (isEmail(email) === false) {
