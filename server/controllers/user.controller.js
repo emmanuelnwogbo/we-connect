@@ -1,6 +1,6 @@
 export default class UserController {
   static signUp(req, res) {
-    res.send('hello signup');
+    const { firstname, lastname, email, password } = req.body;
   }
 
   static login(req, res) {
