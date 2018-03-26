@@ -6,11 +6,18 @@ module.exports = (sequelize, DataTypes) => {
       lastname: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
+      uuid: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+      },
     },
     {}
   );
   User.associate = models => {
-    // associations can be defined here
+    User.hasOne(models.Business, {
+      foreignKey: 'userId',
+      as: 'business',
+    });
   };
   return User;
 };

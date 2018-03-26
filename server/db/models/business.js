@@ -6,11 +6,17 @@ module.exports = (sequelize, DataTypes) => {
       category: DataTypes.STRING,
       contact: DataTypes.STRING,
       address: DataTypes.STRING,
+      uuid: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+      },
     },
     {}
   );
   Business.associate = models => {
-    // associations can be defined here
+    Business.hasMany(models.Review, {
+      as: 'Reviews',
+    });
   };
   return Business;
 };
