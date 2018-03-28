@@ -1,7 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Business = sequelize.define(
-    'Business',
-    {
+    'Business', {
       name: DataTypes.STRING,
       category: DataTypes.STRING,
       contact: DataTypes.STRING,
@@ -10,11 +9,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         primaryKey: true,
       },
-    },
-    {}
+    }, {}
   );
   Business.associate = models => {
-    Business.hasMany(models.Review, {
+    Business.hasMany(models.Reviews, {
       as: 'Reviews',
     });
   };

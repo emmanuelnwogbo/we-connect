@@ -1,8 +1,6 @@
 module.exports = {
   development: {
-    url:
-      'postgres://uyoqfkhs:-TDBsrZLBdvWw8fS-atkbgEbY5qh2sKf@stampy.db.elephantsql.com:5432/uyoqfkhs',
-    dialect: 'postgres',
+    url: 'postgres://uyoqfkhs:-TDBsrZLBdvWw8fS-atkbgEbY5qh2sKf@stampy.db.elephantsql.com:5432/uyoqfkhs'
   },
   test: {
     username: 'root',
